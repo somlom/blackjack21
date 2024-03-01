@@ -6,7 +6,12 @@ import javafx.fxml.FXML;
 public class StartScreenController {
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    private void switchToSettings() throws IOException {
+        App.setRoot("settings");
+    }
+
+    @FXML
+    private void startGame() throws IOException {
+        App.setRoot("game");
     }
 }

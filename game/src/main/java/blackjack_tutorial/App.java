@@ -16,8 +16,10 @@ public class App extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-    scene = new Scene(loadFXML("startScreen"), 640, 480);
+    scene = new Scene(loadFXML("startScreen"), 1280, 720); // hd standart width
     stage.setScene(scene);
+    stage.setFullScreen(true);
+    stage.setTitle("Der lange Weg nach Langsteinbach");
     stage.show();
   }
 
