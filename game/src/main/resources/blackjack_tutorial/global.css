@@ -1,6 +1,7 @@
 .btn {
     -fx-padding: 10px;
     -fx-font-size: 20px;
+    -fx-background-color: transparent;
     -fx-graphic: url(start1.png);
 }
 
@@ -14,8 +15,16 @@
 }
 
 #anchor {
-    -fx-background-image: url("bild.png");
+    -fx-background-image: url("bibib.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
+    }
+
+.slider {
+        -fx-show-tick-marks: true;
+        -fx-show-tick-labels: true;	
+        -fx-alignment: center; /* Align center horizontally */
+        -fx-pref-width: 50px; /* Set preferred width */
+        -fx-max-width: 250px;
     }
     

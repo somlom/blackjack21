@@ -7,9 +7,8 @@
 
 <VBox id="anchor" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blackjack_tutorial.StartScreenController" styleClass="anchor" stylesheets="@global.css">
    <children>
-      <Label text="startScreen View" />
       <Button fx:id="startScreenButton" onAction="#startGame" styleClass="btn" stylesheets="@global.css"/>
-       <Button text="Switch to Settings View" onAction="#switchToSettings" styleClass="btns" stylesheets="@global.css"/>
+       <Button onAction="#switchToSettings" styleClass="btns" stylesheets="@global.css"/>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
