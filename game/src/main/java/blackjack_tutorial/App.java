@@ -15,7 +15,7 @@ public class App extends Application {
   private static Scene scene;
 
   @Override
-  public void start(Stage stage) throws IOException {
+  public void start(@SuppressWarnings("exports") Stage stage) throws IOException {
     scene = new Scene(loadFXML("startScreen"), 1280, 720); // hd standart width
     stage.setScene(scene);
     stage.setFullScreen(true);
