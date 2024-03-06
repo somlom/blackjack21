@@ -2,10 +2,29 @@
     -fx-padding: 10px;
     -fx-font-size: 20px;
     -fx-background-color: transparent;
-    -fx-graphic: url(png-transparent-pixel-art-start-button-text-logo-number-thumbnail-removebg-preview.png);
+    -fx-graphic: url(start1.png);
+}
+
+.btns {
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-object-fit: cover;
+    -fx-background-color: transparent;
+    -fx-max-height: 5px;
+    -fx-graphic: url(settings.png);
 }
 
 #anchor {
-    -fx-background-image: url("bild.png");
+    -fx-background-image: url("bibib.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    }
+
+.slider {
+        -fx-show-tick-marks: true;
+        -fx-show-tick-labels: true;	
+        -fx-alignment: center; /* Align center horizontally */
+        -fx-pref-width: 50px; /* Set preferred width */
+        -fx-max-width: 250px;
     }
     

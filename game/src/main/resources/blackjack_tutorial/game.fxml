@@ -23,7 +23,7 @@
         </Label>
         <ImageView fitHeight="94.0" fitWidth="152.0" layoutX="16.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@car.jpg" />
+                <Image url="@car.png" />
             </image>
         </ImageView>
     </children>

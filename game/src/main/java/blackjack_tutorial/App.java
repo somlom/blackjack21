@@ -2,9 +2,11 @@ package blackjack_tutorial;
 
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 
 /**
@@ -21,6 +23,7 @@ public class App extends Application {
     stage.setFullScreen(true);
     stage.setTitle("Der lange Weg nach Langsteinbach");
     stage.show();
+    
   }
 
   static void setRoot(String fxml) throws IOException {
@@ -33,6 +36,21 @@ public class App extends Application {
     );
     return fxmlLoader.load();
   }
+  public class YourController {
+
+    @FXML
+    private Slider slider;
+
+    public void initialize() {
+        // Add listener to handle value changes
+        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            // Perform actions based on the selected value
+            int selectedValue = newValue.intValue();
+            // Add your logic here
+            System.out.println("Selected value: " + selectedValue);
+        });
+    }
+}
 
   public static void main(String[] args) {
     launch();
