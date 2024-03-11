@@ -42,11 +42,11 @@ public class App extends Application {
     private Slider slider;
 
     public void initialize() {
-        // Add listener to handle value changes
+        
         slider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            // Perform actions based on the selected value
+            
             int selectedValue = newValue.intValue();
-            // Add your logic here
+            
             System.out.println("Selected value: " + selectedValue);
         });
     }

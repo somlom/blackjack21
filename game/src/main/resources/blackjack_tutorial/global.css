@@ -15,7 +15,13 @@
 }
 
 #anchor {
-    -fx-background-image: url("bibib.jpg");
+    -fx-background-image: url("Untitled.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    }
+
+#anchors {
+    -fx-background-image: url("settingsbck.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     }
@@ -27,4 +33,6 @@
         -fx-pref-width: 50px; /* Set preferred width */
         -fx-max-width: 250px;
     }
-    
+#myImage {
+        -fx-image: url("mypackage/myimage.jpg"); 
+      }
