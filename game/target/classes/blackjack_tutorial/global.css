@@ -3,6 +3,21 @@
     -fx-font-size: 20px;
     -fx-background-color: transparent;
     -fx-graphic: url(start1.png);
+    -fx-cursor: hand;
+}
+.sback {
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-graphic: url(sback.png);
+    -fx-cursor: hand;
+}
+.einstellung {
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-graphic: url(einstellungen.png);
+    
 }
 
 .btns {
@@ -12,10 +27,11 @@
     -fx-background-color: transparent;
     -fx-max-height: 5px;
     -fx-graphic: url(settings.png);
+    -fx-cursor: hand;
 }
 
 #anchor {
-    -fx-background-image: url("Untitled.png");
+    -fx-background-image: url("settingsbck.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     }
