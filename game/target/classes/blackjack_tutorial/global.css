@@ -1,8 +1,37 @@
+.titel {
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-graphic: url(titel.png);
+}
 .btn {
     -fx-padding: 10px;
     -fx-font-size: 20px;
     -fx-background-color: transparent;
     -fx-graphic: url(start1.png);
+    -fx-cursor: hand;
+}
+.sback {
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-graphic: url(sback.png);
+    -fx-cursor: hand;
+}
+.einstellung {
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-graphic: url(einstellungen.png);
+    
+}
+
+.schwierigkeit {
+    -fx-padding: 20px 0 0px 0;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-graphic: url(schwierigkeit.png);
+    
 }
 
 .btns {
@@ -12,10 +41,17 @@
     -fx-background-color: transparent;
     -fx-max-height: 5px;
     -fx-graphic: url(settings.png);
+    -fx-cursor: hand;
 }
 
 #anchor {
-    -fx-background-image: url("bibib.jpg");
+    -fx-background-image: url("settingsbck.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    }
+
+#anchors {
+    -fx-background-image: url("settingsbck.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     }
@@ -27,4 +63,6 @@
         -fx-pref-width: 50px; /* Set preferred width */
         -fx-max-width: 250px;
     }
-    
+#myImage {
+        -fx-image: url("mypackage/myimage.jpg"); 
+      }
