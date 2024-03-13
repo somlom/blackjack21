@@ -7,7 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
 
 /**
  * JavaFX App
@@ -22,6 +24,7 @@ public class App extends Application {
     stage.setScene(scene);
     stage.setFullScreen(true);
     stage.setTitle("Der lange Weg nach Langsteinbach");
+    stage.getIcons().add(new Image("/icon.png"));
     stage.show();
     
   }
@@ -36,21 +39,26 @@ public class App extends Application {
     );
     return fxmlLoader.load();
   }
-  public class YourController {
+//    public class YourController {
 
-    @FXML
-    private Slider slider;
+//     @FXML
+//     private Slider slider;
 
-    public void initialize() {
+//     public void initialize() {
         
-        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+//         slider.valueProperty().addListener((observable, oldValue, newValue) -> {
             
-            int selectedValue = newValue.intValue();
+//             int selectedValue = newValue.intValue();
             
-            System.out.println("Selected value: " + selectedValue);
-        });
-    }
+//             System.out.println("Selected value: " + selectedValue);
+//         });
+//     }
+// }
+public class SampleController {
+  @FXML
+  private Slider slider;
 }
+
 
   public static void main(String[] args) {
     launch();

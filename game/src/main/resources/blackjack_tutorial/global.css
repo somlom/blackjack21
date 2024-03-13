@@ -1,3 +1,9 @@
+.titel {
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-graphic: url(titel.png);
+}
 .btn {
     -fx-padding: 10px;
     -fx-font-size: 20px;
@@ -17,6 +23,14 @@
     -fx-font-size: 20px;
     -fx-background-color: transparent;
     -fx-graphic: url(einstellungen.png);
+    
+}
+
+.schwierigkeit {
+    -fx-padding: 20px 0 0px 0;
+    -fx-font-size: 20px;
+    -fx-background-color: transparent;
+    -fx-graphic: url(schwierigkeit.png);
     
 }
 
