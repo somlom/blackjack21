@@ -28,3 +28,7 @@
         -fx-max-width: 250px;
     }
     
+.lane{
+    -fx-height: 100%;
+    -fx-background-color: red;
+}

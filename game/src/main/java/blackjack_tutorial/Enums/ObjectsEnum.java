@@ -5,7 +5,8 @@ public enum ObjectsEnum {
   OBSTACLE("obstacle"),
   ROAD("road"),
   PLAYER("player"),
-  TRAFFIC("traffic");
+  TRAFFIC("traffic"),
+  CONSTRUCTION("construction");
 
   private final String elementName;
 

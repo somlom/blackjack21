@@ -1,29 +1,31 @@
 package blackjack_tutorial.Classes;
 
+import blackjack_tutorial.Enums.ObjectsEnum;
+
 public class Player {
 
   boolean moveable;
   int speed;
-  int[] position;
-  String name;
+  public int[] position;
+  ObjectsEnum name;
   int points = 0;
 
-  public Player(String name, boolean moveable, int[] position, int speed) {
-    this.name = name;
+  public Player(boolean moveable, int[] position, int speed) {
+    this.name = ObjectsEnum.PLAYER;
     this.moveable = moveable;
     this.speed = speed;
     this.position = position;
   }
 
-  int[] move(int[] position) {
+  public int[] move(int[] position) {
     return this.position = position;
   }
 
-  int setSpeed(int speed) {
+  public int setSpeed(int speed) {
     return this.speed = speed;
   }
 
-  int incrementPoints() {
+  public int incrementPoints() {
     return this.points++;
   }
 }
