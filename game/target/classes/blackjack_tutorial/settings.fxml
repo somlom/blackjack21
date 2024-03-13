@@ -5,14 +5,20 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blackjack_tutorial.SettingsController" stylesheets="@global.css">
+
+
+<VBox fx:id="anchors" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blackjack_tutorial.SettingsController" styleClass="anchors" stylesheets="@global.css">
     <children>
-        <Label text="Settings View" />
-        <Slider fx:id="slider" min="1" max="3" majorTickUnit="1" minorTickCount="0" snapToTicks="true" styleClass="slider" stylesheets="@global.css"/>
-        <Button fx:id="settingsButton" text="- Back" onAction="#switchTostartScreen" />
+    <Button styleClass="einstellung" stylesheets="@global.css"/>
+    <Button styleClass="schwierigkeit" stylesheets="@global.css"/>
+    <Slider fx:id="slider" min="0" max="100" showTickLabels="true" showTickMarks="true"/>      
+    <Button fx:id="settingsButton" onAction="#switchTostartScreen" styleClass="sback" stylesheets="@global.css" />
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 </VBox>
+                                                                                                     
