@@ -63,14 +63,13 @@
         -fx-pref-width: 50px; /* Set preferred width */
         -fx-max-width: 250px;
     }
-<<<<<<< HEAD
     
 .lane{
     -fx-height: 100%;
     -fx-background-color: red;
 }
-=======
+
 #myImage {
         -fx-image: url("mypackage/myimage.jpg"); 
       }
->>>>>>> e3781c139a191ff0a706e7755386b72d7bbff717
+
