@@ -1,5 +1,6 @@
 package blackjack_tutorial;
 
+import java.beans.EventHandler;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -8,8 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-
 
 /**
  * JavaFX App
@@ -26,7 +27,6 @@ public class App extends Application {
     stage.setTitle("Der lange Weg nach Langsteinbach");
     stage.getIcons().add(new Image("/icon.png"));
     stage.show();
-    
   }
 
   static void setRoot(String fxml) throws IOException {
@@ -39,26 +39,27 @@ public class App extends Application {
     );
     return fxmlLoader.load();
   }
-//    public class YourController {
 
-//     @FXML
-//     private Slider slider;
+  //    public class YourController {
 
-//     public void initialize() {
-        
-//         slider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            
-//             int selectedValue = newValue.intValue();
-            
-//             System.out.println("Selected value: " + selectedValue);
-//         });
-//     }
-// }
-public class SampleController {
-  @FXML
-  private Slider slider;
-}
+  //     @FXML
+  //     private Slider slider;
 
+  //     public void initialize() {
+
+  //         slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+  //             int selectedValue = newValue.intValue();
+
+  //             System.out.println("Selected value: " + selectedValue);
+  //         });
+  //     }
+  // }
+  public class SampleController {
+
+    @FXML
+    private Slider slider;
+  }
 
   public static void main(String[] args) {
     launch();
