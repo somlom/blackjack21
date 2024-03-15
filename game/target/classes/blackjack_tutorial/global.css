@@ -69,6 +69,15 @@
     -fx-background-color: red;
 }
 
+.hbox{
+    -fx-height: 100%;
+    -fx-border: 1px solid black;
+}
+
+.hbox * {
+    -fx-height: 100%;
+}
+
 #myImage {
         -fx-image: url("mypackage/myimage.jpg"); 
       }
