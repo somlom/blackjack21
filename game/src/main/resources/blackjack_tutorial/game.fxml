@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:controller="blackjack_tutorial.GameController"
+<Pane fx:controller="game.GameController"
       fx:id="gamePane"
       maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="600.0" prefWidth="800.0"
