@@ -10,7 +10,7 @@
 
 
 
-<VBox fx:id="anchors" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="blackjack_tutorial.SettingsController" styleClass="anchors" stylesheets="@global.css">
+<VBox fx:id="anchors" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.SettingsController" styleClass="anchors" stylesheets="@global.css">
     <children>
     <Button styleClass="einstellung" stylesheets="@global.css"/>
     <Button styleClass="schwierigkeit" stylesheets="@global.css"/>
