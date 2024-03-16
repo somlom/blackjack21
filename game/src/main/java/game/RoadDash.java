@@ -14,8 +14,8 @@ public class RoadDash {
   public Screen coordinates;
   public static double velocity = 0;
 
-  public RoadDash(@SuppressWarnings("exports") BorderPane root, Screen coordinate) {
-    this.coordinates = coordinate;
+  public RoadDash(@SuppressWarnings("exports") BorderPane root, Screen coordinates) {
+    this.coordinates = coordinates;
     img = new ImageView();
     img.setImage(carImage);
     root.getChildren().add(createImage());

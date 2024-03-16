@@ -12,7 +12,15 @@ public class Screen {
   private static Screen gamePlay = new Screen();
   private BorderPane root;
   public Screen road;
+  public static Screen screen;
+
+  public Player carPlayer;
+  public ArrayList<Traffic> trafficList = new ArrayList<Traffic>();
+  public ArrayList<RoadDash> dashesList = new ArrayList<RoadDash>();
+
   private boolean isPlaying = false;
+  private long previous = 0;
+  private Text score, level;
 
   public Screen(double x, double y, double width, double height) {
     this.x = x;
@@ -34,8 +42,6 @@ public class Screen {
 
     init();
   }
-
-  private Text score, level;
 
   public void init() {
     score = show("SCORE", Color.WHITE, 0);
@@ -68,11 +74,6 @@ public class Screen {
     level.setText(String.valueOf(speed));
   }
 
-  public static Screen screen;
-  public Player carPlayer;
-  public ArrayList<Traffic> trafficList = new ArrayList<Traffic>();
-  public ArrayList<RoadDash> dashesList = new ArrayList<RoadDash>();
-
   public void addEntity(Traffic traffic) {
     trafficList.add(traffic);
   }
@@ -92,8 +93,6 @@ public class Screen {
       trafficList.get(i).restartGame();
     }
   }
-
-  private long previous = 0;
 
   public void changingBoard(long now) {
     if (previous == 0 || isPlaying == false) {

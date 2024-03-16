@@ -8,7 +8,7 @@ import javafx.scene.layout.BorderPane;
 public class Player {
 
   @SuppressWarnings("exports")
-  public ImageView imgPlacholder;
+  public ImageView imgPlaceholder;
 
   private Image carImage = new Image("/static/green.png");
   public static Player carPlayer;
@@ -17,20 +17,22 @@ public class Player {
   static ImageView staticImg;
   private Screen coordinates;
   private double velocity = 0;
+  public static int score = 0;
+  public static int level = 1;
 
-  public Player(@SuppressWarnings("exports") BorderPane root, Screen coordinate) {
-    this.coordinates = coordinate;
-    this.imgPlacholder = new ImageView();
-    this.imgPlacholder.setImage(carImage);
+  public Player(@SuppressWarnings("exports") BorderPane root, Screen coordinates) {
+    this.coordinates = coordinates;
+    this.imgPlaceholder = new ImageView();
+    this.imgPlaceholder.setImage(carImage);
     Player.staticImg = createImage();
     root.getChildren().add(createImage());
   }
 
   @SuppressWarnings("exports")
   public ImageView createImage() {
-    imgPlacholder.setX(coordinates.x);
-    imgPlacholder.setY(coordinates.y);
-    return imgPlacholder;
+    this.imgPlaceholder.setX(coordinates.x);
+    this.imgPlaceholder.setY(coordinates.y);
+    return this.imgPlaceholder;
   }
 
   public void setRoad(Screen road) {
@@ -43,33 +45,30 @@ public class Player {
 
   public void keyPressed(@SuppressWarnings("exports") KeyCode press) {
     if (press == KeyCode.LEFT) {
-      velocity = -450;
+      this.velocity = -450;
     } else if (press == KeyCode.RIGHT) {
-      velocity = 450;
+      this.velocity = 450;
     } else {
     }
   }
 
   public void keyReleased(@SuppressWarnings("exports") KeyCode release) {
     if (release == KeyCode.LEFT || release == KeyCode.RIGHT) {
-      velocity = 0;
+      this.velocity = 0;
     }
   }
 
   public Screen getCoordinates() {
-    return coordinates;
+    return this.coordinates;
   }
 
-  public static int score = 0;
-  public static int level = 1;
-
   public void changingBoard(double acceleration) {
-    double change = velocity * acceleration;
+    double change = this.velocity * acceleration;
     double x = getCoordinates().x;
     if ((x + change > road.x) &&
         (x + change + getCoordinates().width < road.x + road.width)) {
-      coordinates.x = (x + change);
-      imgPlacholder.setX(x + change);
+      this.coordinates.x = (x + change);
+      this.imgPlaceholder.setX(x + change);
     }
 
     Screen.screen.showScore(score);
