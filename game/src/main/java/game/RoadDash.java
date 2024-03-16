@@ -14,13 +14,14 @@ public class RoadDash {
   public Screen coordinates;
   public static double velocity = 0;
 
-  public RoadDash(BorderPane root, Screen coordinate) {
-    this.coordinates = coordinate;
+  public RoadDash(@SuppressWarnings("exports") BorderPane root, Screen coordinates) {
+    this.coordinates = coordinates;
     img = new ImageView();
     img.setImage(carImage);
     root.getChildren().add(createImage());
   }
 
+  @SuppressWarnings("exports")
   public ImageView createImage() {
     img.setX(coordinates.x);
     img.setY(coordinates.y);

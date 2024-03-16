@@ -21,7 +21,7 @@ public class GameLoad {
   public Screen screen;
   private ImageView leftSign[], rightSign[];
 
-  public GameLoad(BorderPane root, Screen road) {
+  public GameLoad(@SuppressWarnings("exports") BorderPane root, Screen road) {
     this.root = root;
     this.screen = road;
     gameLoad();
@@ -46,13 +46,12 @@ public class GameLoad {
     RB.setY(250);
     root.getChildren().addAll(RT, RB, LT, LB);
 
-    scroll =
-      new AnimationTimer() { //scoll of screen
-        @Override
-        public void handle(long now) {
-          Screen.getInstance().changingBoard(now);
-        }
-      };
+    scroll = new AnimationTimer() { // scoll of screen
+      @Override
+      public void handle(long now) {
+        Screen.getInstance().changingBoard(now);
+      }
+    };
 
     Rectangle road = new Rectangle(400, 0, 460, 960); // road layer on center
     road.setFill(Color.GRAY);
@@ -93,11 +92,10 @@ public class GameLoad {
   }
 
   private ImageView createImage(
-    double x,
-    double y,
-    double rotation,
-    String imgPath
-  ) {
+      double x,
+      double y,
+      double rotation,
+      String imgPath) {
     ImageView tree = new ImageView();
     tree.setImage(new Image(imgPath));
     tree.setX(x);
@@ -124,8 +122,7 @@ public class GameLoad {
     Screen.getInstance().stop();
     Font font = Font.font("Times New Roman", FontWeight.EXTRA_BOLD, 50);
     informationText.setText(
-      "GAME OVER\nYour score " + Player.score + "\nPress ENTER to restart"
-    );
+        "GAME OVER\nYour score " + Player.score + "\nPress ENTER to restart");
     informationText.setFont(font);
   }
 
