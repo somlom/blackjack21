@@ -18,14 +18,15 @@ public class Player {
   private Screen coordinates;
   private double velocity = 0;
 
-  public Player(BorderPane root, Screen coordinate) {
+  public Player(@SuppressWarnings("exports") BorderPane root, Screen coordinate) {
     this.coordinates = coordinate;
     this.imgPlacholder = new ImageView();
     this.imgPlacholder.setImage(carImage);
-    this.staticImg = createImage();
+    Player.staticImg = createImage();
     root.getChildren().add(createImage());
   }
 
+  @SuppressWarnings("exports")
   public ImageView createImage() {
     imgPlacholder.setX(coordinates.x);
     imgPlacholder.setY(coordinates.y);
@@ -40,15 +41,16 @@ public class Player {
     GameLoad.gameLoad.gameOver();
   }
 
-  public void keyPressed(KeyCode press) {
+  public void keyPressed(@SuppressWarnings("exports") KeyCode press) {
     if (press == KeyCode.LEFT) {
       velocity = -450;
     } else if (press == KeyCode.RIGHT) {
       velocity = 450;
-    } else {}
+    } else {
+    }
   }
 
-  public void keyReleased(KeyCode release) {
+  public void keyReleased(@SuppressWarnings("exports") KeyCode release) {
     if (release == KeyCode.LEFT || release == KeyCode.RIGHT) {
       velocity = 0;
     }
@@ -64,10 +66,8 @@ public class Player {
   public void changingBoard(double acceleration) {
     double change = velocity * acceleration;
     double x = getCoordinates().x;
-    if (
-      (x + change > road.x) &&
-      (x + change + getCoordinates().width < road.x + road.width)
-    ) {
+    if ((x + change > road.x) &&
+        (x + change + getCoordinates().width < road.x + road.width)) {
       coordinates.x = (x + change);
       imgPlacholder.setX(x + change);
     }

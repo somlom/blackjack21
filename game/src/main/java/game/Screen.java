@@ -21,13 +21,14 @@ public class Screen {
     this.height = height;
   }
 
-  private Screen() {}
+  private Screen() {
+  }
 
   public static Screen getInstance() {
     return gamePlay;
   }
 
-  public Screen(BorderPane root, Screen roadBoundary) {
+  public Screen(@SuppressWarnings("exports") BorderPane root, Screen roadBoundary) {
     this.root = root;
     this.road = roadBoundary;
 
@@ -111,12 +112,10 @@ public class Screen {
     for (int i = 0; i < trafficList.size(); i++) {
       Traffic traffic = trafficList.get(i);
 
-      if (
-        carPlayer
+      if (carPlayer
           .createImage()
           .getBoundsInParent()
-          .intersects(traffic.createImage().getBoundsInParent())
-      ) {
+          .intersects(traffic.createImage().getBoundsInParent())) {
         Player.carPlayer.gameOver();
       }
 

@@ -6,7 +6,7 @@ import javafx.scene.layout.BorderPane;
 
 public class Game extends Scene {
 
-  public Game(BorderPane root, double width, double height) {
+  public Game(@SuppressWarnings("exports") BorderPane root, double width, double height) {
     super(root, width, height);
     Screen road = new Screen(400, 0, 460, 960);
     GameLoad.gameLoad = new GameLoad(root, road);
