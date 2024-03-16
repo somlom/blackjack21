@@ -4,17 +4,15 @@ import java.util.ArrayList;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 public class Screen {
 
-  double x, y, width, height;
+  public double x, y, width, height;
   private static Screen gamePlay = new Screen();
   private BorderPane root;
   public Screen road;
-  private boolean isPlay = false;
+  private boolean isPlaying = false;
 
   public Screen(double x, double y, double width, double height) {
     this.x = x;
@@ -39,24 +37,25 @@ public class Screen {
   private Text score, level;
 
   public void init() {
-    score = show("SCORE", Color.BLACK, 0);
-    level = show("LEVEL", Color.BLACK, 120);
+    score = show("SCORE", Color.WHITE, 0);
+    level = show("LEVEL", Color.WHITE, 120);
   }
 
   private Text show(String title, Color bg, double offset) {
     Rectangle rectBg = new Rectangle(10, offset, 10, 110);
+    // invisibe border for data structurisation
 
     Text score = new Text(title);
-    score.setFill(Color.BLACK);
+    score.setFill(Color.WHITE);
     score.setX(rectBg.getX() + 25);
     score.setY(rectBg.getY() + 35);
-    root.getChildren().add(score);
 
     Text level = new Text();
-    level.setFill(Color.BLACK);
+    level.setFill(Color.WHITE);
     level.setX(score.getX() + 25);
     level.setY(score.getY() + 35);
-    root.getChildren().add(level);
+
+    root.getChildren().addAll(score, level);
     return level;
   }
 
@@ -70,15 +69,15 @@ public class Screen {
 
   public static Screen screen;
   public Player carPlayer;
-  public ArrayList<Cars> enemies = new ArrayList<Cars>();
-  public ArrayList<Dash> dash = new ArrayList<Dash>();
+  public ArrayList<Traffic> trafficList = new ArrayList<Traffic>();
+  public ArrayList<RoadDash> dashesList = new ArrayList<RoadDash>();
 
-  public void addEntity(Cars enemy) {
-    enemies.add(enemy);
+  public void addEntity(Traffic traffic) {
+    trafficList.add(traffic);
   }
 
-  public void addEntity(Dash dash) {
-    this.dash.add(dash);
+  public void addEntity(RoadDash dash) {
+    this.dashesList.add(dash);
   }
 
   public void setMainEntity(Player carPlayer) {
@@ -86,42 +85,42 @@ public class Screen {
   }
 
   public void start() {
-    isPlay = true;
+    isPlaying = true;
 
-    for (int i = 0; i < enemies.size(); i++) {
-      enemies.get(i).game();
+    for (int i = 0; i < trafficList.size(); i++) {
+      trafficList.get(i).restartGame();
     }
   }
 
   private long previous = 0;
 
   public void changingBoard(long now) {
-    if (previous == 0 || isPlay == false) {
+    if (previous == 0 || isPlaying == false) {
       previous = now;
       return;
     }
 
     double dt = (now - previous) / Math.pow(10, 9);
 
-    for (int i = 0; i < dash.size(); i++) {
-      Dash roadDash = dash.get(i);
+    for (int i = 0; i < dashesList.size(); i++) {
+      RoadDash roadDash = dashesList.get(i);
 
       roadDash.moveDash(dt);
     }
 
-    for (int i = 0; i < enemies.size(); i++) {
-      Cars enemy = enemies.get(i);
+    for (int i = 0; i < trafficList.size(); i++) {
+      Traffic traffic = trafficList.get(i);
 
       if (
         carPlayer
           .createImage()
           .getBoundsInParent()
-          .intersects(enemy.createImage().getBoundsInParent())
+          .intersects(traffic.createImage().getBoundsInParent())
       ) {
         Player.carPlayer.gameOver();
       }
 
-      enemy.colorChanging(dt);
+      traffic.levelUp(dt);
     }
 
     carPlayer.changingBoard(dt);
@@ -130,10 +129,10 @@ public class Screen {
   }
 
   public void stop() {
-    isPlay = false;
-    for (int i = 0; i < enemies.size(); i++) {
-      enemies.get(i).resume();
+    isPlaying = false;
+    for (int i = 0; i < trafficList.size(); i++) {
+      trafficList.get(i).resume();
     }
-    enemies.clear();
+    trafficList.clear();
   }
 }

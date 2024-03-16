@@ -7,27 +7,29 @@ import javafx.scene.layout.BorderPane;
 
 public class Player {
 
-  public ImageView img;
-  private Image carImage = new Image("green.png");
+  @SuppressWarnings("exports")
+  public ImageView imgPlacholder;
+
+  private Image carImage = new Image("/static/green.png");
   public static Player carPlayer;
 
   private Screen road;
-  static ImageView createimg;
-  private Screen coordinate;
+  static ImageView staticImg;
+  private Screen coordinates;
   private double velocity = 0;
 
   public Player(BorderPane root, Screen coordinate) {
-    this.coordinate = coordinate;
-    img = new ImageView();
-    img.setImage(carImage);
-    createimg = createImage();
+    this.coordinates = coordinate;
+    this.imgPlacholder = new ImageView();
+    this.imgPlacholder.setImage(carImage);
+    this.staticImg = createImage();
     root.getChildren().add(createImage());
   }
 
   public ImageView createImage() {
-    img.setX(coordinate.x);
-    img.setY(coordinate.y);
-    return img;
+    imgPlacholder.setX(coordinates.x);
+    imgPlacholder.setY(coordinates.y);
+    return imgPlacholder;
   }
 
   public void setRoad(Screen road) {
@@ -52,27 +54,27 @@ public class Player {
     }
   }
 
-  public Screen getCoordinate() {
-    return coordinate;
+  public Screen getCoordinates() {
+    return coordinates;
   }
 
   public static int score = 0;
   public static int level = 1;
 
-  public void changingBoard(double acc) {
-    double change = velocity * acc;
-    double x = getCoordinate().x;
+  public void changingBoard(double acceleration) {
+    double change = velocity * acceleration;
+    double x = getCoordinates().x;
     if (
       (x + change > road.x) &&
-      (x + change + getCoordinate().width < road.x + road.width)
+      (x + change + getCoordinates().width < road.x + road.width)
     ) {
-      coordinate.x = (x + change);
-      img.setX(x + change);
+      coordinates.x = (x + change);
+      imgPlacholder.setX(x + change);
     }
 
     Screen.screen.showScore(score);
     Screen.screen.showLevel(level);
 
-    GameLoad.gameLoad.update(acc);
+    GameLoad.gameLoad.update(acceleration);
   }
 }

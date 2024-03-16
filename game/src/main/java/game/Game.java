@@ -21,26 +21,26 @@ public class Game extends Scene {
       if (press == KeyCode.ENTER) {
         restart();
       } else if (press == KeyCode.UP) {
-        if (Cars.velocity < Cars.balance) {
-          Cars.velocity += 75;
-          Dash.velocity += 75;
-          GameLoad.velocityStep += 75;
+        if (Traffic.velocity < Traffic.balance) {
+          Traffic.velocity += 150;
+          RoadDash.velocity += 150;
+          GameLoad.velocityStep += 150;
         }
       } else if (press == KeyCode.LEFT || press == KeyCode.RIGHT) {
         Player.carPlayer.keyPressed(press);
-      } else {}
+      } else if (press == KeyCode.DOWN) {
+        if (Traffic.velocity >= 150 * 2) {
+          Traffic.velocity -= 150;
+          RoadDash.velocity -= 150;
+          GameLoad.velocityStep -= 150;
+        }
+      }
     });
     setOnKeyReleased(key -> {
       KeyCode release = key.getCode();
       if (release == KeyCode.LEFT || key.getCode() == KeyCode.RIGHT) {
         Player.carPlayer.keyReleased(release);
-      } else if (release == KeyCode.UP) {
-        Player.carPlayer.keyReleased(release);
-
-        Cars.velocity = 100;
-        Dash.velocity = 100;
-        GameLoad.velocityStep = 100;
-      } else {}
+      }
     });
   }
 
@@ -49,8 +49,8 @@ public class Game extends Scene {
     GameLoad.gameLoad.resume();
     Player.level = 1;
     Player.score = 0;
-    Cars.velocity = 525;
-    Dash.velocity = 525;
+    Traffic.velocity = 525;
+    RoadDash.velocity = 525;
     GameLoad.velocityStep = 525;
     GameLoad.gameLoad.gameLoad();
     Screen.screen.init();
