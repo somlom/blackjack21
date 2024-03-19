@@ -16,7 +16,6 @@ public class StartScreenController {
   private void startGame(ActionEvent event) throws IOException {
     Stage stage = (Stage) startScreenButton.getScene().getWindow();
     Game game = new Game(new BorderPane(), 1280, 720);
-    stage.setFullScreen(true);
     stage.setScene(game);
 
     game.start();
