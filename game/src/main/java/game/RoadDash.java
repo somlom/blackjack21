@@ -1,31 +1,15 @@
 package game;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import game.Enums.PicEnum;
+import game.helpers.GameObject;
 import javafx.scene.layout.BorderPane;
 
-public class RoadDash {
+public class RoadDash extends GameObject {
 
-  private Image carImage = new Image("/static/dash.png");
-
-  @SuppressWarnings("exports")
-  public ImageView img;
-
-  public Screen coordinates;
   public static double velocity = 0;
 
   public RoadDash(@SuppressWarnings("exports") BorderPane root, Screen coordinates) {
-    this.coordinates = coordinates;
-    img = new ImageView();
-    img.setImage(carImage);
-    root.getChildren().add(createImage());
-  }
-
-  @SuppressWarnings("exports")
-  public ImageView createImage() {
-    img.setX(coordinates.x);
-    img.setY(coordinates.y);
-    return img;
+    super(root, coordinates, PicEnum.DASH.getImage());
   }
 
   public void moveDash(double acceleration) {

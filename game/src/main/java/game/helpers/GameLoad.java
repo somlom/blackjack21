@@ -1,5 +1,10 @@
-package game;
+package game.helpers;
 
+import game.Player;
+import game.RoadDash;
+import game.Screen;
+import game.Traffic;
+import game.Enums.PicEnum;
 import javafx.animation.AnimationTimer;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,7 +17,7 @@ import javafx.scene.text.Text;
 
 public class GameLoad {
 
-  private Image tree = new Image("/static/tree.png");
+  private Image forest = PicEnum.FOREST.getImage();
   public static double velocityStep = 525;
   public static GameLoad gameLoad;
   private Text informationText;
@@ -21,7 +26,7 @@ public class GameLoad {
   public Screen screen;
   private ImageView leftSign[], rightSign[];
 
-  public GameLoad(@SuppressWarnings("exports") BorderPane root, Screen road) {
+  public GameLoad(BorderPane root, Screen road) {
     this.root = root;
     this.screen = road;
     gameLoad();
@@ -29,19 +34,19 @@ public class GameLoad {
 
   public void gameLoad() {
     ImageView LT = new ImageView(); // left top tree
-    LT.setImage(tree);
+    LT.setImage(forest);
     LT.setX(0);
     LT.setY(-150);
     ImageView LB = new ImageView(); // left bottom tree
-    LB.setImage(tree);
+    LB.setImage(forest);
     LB.setX(0);
     LB.setY(250);
     ImageView RT = new ImageView(); // right top tree
-    RT.setImage(tree);
+    RT.setImage(forest);
     RT.setX(980);
     RT.setY(-150);
     ImageView RB = new ImageView(); // right bottom tree
-    RB.setImage(tree);
+    RB.setImage(forest);
     RB.setX(980);
     RB.setY(250);
     root.getChildren().addAll(RT, RB, LT, LB);
