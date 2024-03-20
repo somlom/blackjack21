@@ -13,11 +13,6 @@ public class StartScreenController {
   private Button startScreenButton;
 
   @FXML
-  private void switchToSettings() throws IOException {
-    App.setRoot("settings");
-  }
-
-  @FXML
   private void startGame(ActionEvent event) throws IOException {
     Stage stage = (Stage) startScreenButton.getScene().getWindow();
     Game game = new Game(new BorderPane(), 1280, 720);

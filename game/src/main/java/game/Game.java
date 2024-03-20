@@ -1,5 +1,6 @@
 package game;
 
+import game.helpers.GameLoad;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
@@ -21,7 +22,7 @@ public class Game extends Scene {
       if (press == KeyCode.ENTER) {
         restart();
       } else if (press == KeyCode.UP) {
-        if (Traffic.velocity < Traffic.balance) {
+        if (Traffic.velocity < Traffic.points) {
           Traffic.velocity += 150;
           RoadDash.velocity += 150;
           GameLoad.velocityStep += 150;

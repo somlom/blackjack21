@@ -1,37 +1,22 @@
 package game;
 
 import java.util.Random;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+
+import game.Enums.PicEnum;
+import game.helpers.GameLoad;
+import game.helpers.GameObject;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 
-public class Traffic {
+public class Traffic extends GameObject {
 
-  private Image trafficImg = new Image("/static/red.png");
-
-  @SuppressWarnings("exports")
-  public ImageView imgPlacholder;
-
-  public Screen coordinates;
-  static double velocity = 0;
-  static double balance = 525;
+  public static double velocity = 0;
+  static double points = 525;
 
   public Traffic(
-    @SuppressWarnings("exports") BorderPane root,
-    Screen trafficCoordiantes
-  ) {
-    this.coordinates = trafficCoordiantes;
-    this.imgPlacholder = new ImageView();
-    this.imgPlacholder.setImage(trafficImg);
-    root.getChildren().add(createImage());
-  }
-
-  @SuppressWarnings("exports")
-  public ImageView createImage() {
-    imgPlacholder.setX(coordinates.x);
-    imgPlacholder.setY(coordinates.y);
-    return imgPlacholder;
+      @SuppressWarnings("exports") BorderPane root,
+      Screen trafficCoordiantes) {
+    super(root, trafficCoordiantes, PicEnum.TRAFFIC.getImage());
   }
 
   public void createRoad(Screen roadCoordinates) {
@@ -39,7 +24,7 @@ public class Traffic {
   }
 
   public void restartGame() {
-    velocity = balance;
+    velocity = points;
     restart();
   }
 
@@ -53,7 +38,7 @@ public class Traffic {
     double y = coordinates.y;
     if (y + d < rect.getHeight()) {
       coordinates.y = (y + d);
-      imgPlacholder.setY(y + d);
+      img.setY(y + d);
     }
 
     if (y + d > 960) {
@@ -70,18 +55,14 @@ public class Traffic {
 
   private void restart() {
     Rectangle rect = (Rectangle) createImage().getClip();
-    coordinates.x =
-      (
-        rect.getX() +
+    coordinates.x = (rect.getX() +
         (rect.getWidth() - coordinates.width) *
-        new Random().nextDouble()
-      );
-    imgPlacholder.setX(
-      rect.getX() +
-      (rect.getWidth() - coordinates.width) *
-      new Random().nextDouble()
-    );
+            new Random().nextDouble());
+    img.setX(
+        rect.getX() +
+            (rect.getWidth() - coordinates.width) *
+                new Random().nextDouble());
     coordinates.y = (-coordinates.height);
-    imgPlacholder.setY(-coordinates.height);
+    img.setY(-coordinates.height);
   }
 }

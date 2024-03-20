@@ -1,38 +1,22 @@
 package game;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import game.Enums.PicEnum;
+import game.helpers.GameLoad;
+import game.helpers.GameObject;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 
-public class Player {
-
-  @SuppressWarnings("exports")
-  public ImageView imgPlaceholder;
-
-  private Image carImage = new Image("/static/green.png");
+public class Player extends GameObject {
   public static Player carPlayer;
 
   private Screen road;
-  static ImageView staticImg;
-  private Screen coordinates;
   private double velocity = 0;
+
   public static int score = 0;
   public static int level = 1;
 
   public Player(@SuppressWarnings("exports") BorderPane root, Screen coordinates) {
-    this.coordinates = coordinates;
-    this.imgPlaceholder = new ImageView();
-    this.imgPlaceholder.setImage(carImage);
-    Player.staticImg = createImage();
-    root.getChildren().add(createImage());
-  }
-
-  @SuppressWarnings("exports")
-  public ImageView createImage() {
-    this.imgPlaceholder.setX(coordinates.x);
-    this.imgPlaceholder.setY(coordinates.y);
-    return this.imgPlaceholder;
+    super(root, coordinates, PicEnum.PLAYER.getImage());
   }
 
   public void setRoad(Screen road) {
@@ -48,7 +32,6 @@ public class Player {
       this.velocity = -450;
     } else if (press == KeyCode.RIGHT) {
       this.velocity = 450;
-    } else {
     }
   }
 
@@ -64,11 +47,11 @@ public class Player {
 
   public void changingBoard(double acceleration) {
     double change = this.velocity * acceleration;
-    double x = getCoordinates().x;
+    double x = this.getCoordinates().x;
     if ((x + change > road.x) &&
         (x + change + getCoordinates().width < road.x + road.width)) {
       this.coordinates.x = (x + change);
-      this.imgPlaceholder.setX(x + change);
+      this.img.setX(x + change);
     }
 
     Screen.screen.showScore(score);
