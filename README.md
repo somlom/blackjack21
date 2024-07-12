@@ -12,7 +12,7 @@ We encourage contributions to this project through pull requests. Please follow 
 
 2. **Pull Request to Main Branch**: All pull requests should be made to the `main` branch of the repository.
 
-3. **Mention @somlom to Merge**: Once your pull request is ready for review and merge, please mention the user @somlom in a comment on the pull request. This will notify them to review and merge your changes.
+3. **Mention @la-leche to Merge**: Once your pull request is ready for review and merge, please mention the user @la-leche in a comment on the pull request. This will notify them to review and merge your changes.
 
 4. **Follow Coding Standards**: Ensure that your code follows the project's coding standards and conventions. This includes proper formatting, commenting, and adherence to any style guides specified for the project.
 
